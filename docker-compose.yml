@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    environment:
+       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+       MYSQL_DATABASE: 'boilerplate'
+       MYSQL_USER: 'root'
+       MYSQL_PASSWORD: ''
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8090
+    volumes:
+      - .:/myapp
+    ports:
+      - "8090:8090"
+    depends_on:
+      - db
