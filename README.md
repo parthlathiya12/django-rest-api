@@ -7,7 +7,7 @@ Foe easy setup, we hvae added docker setup also docke
 
 ### Prerequisites
 
-You need to install Docker. see the [install instructions.](https://www.docker.com/get-started)
+Install Docker. see the [install instructions.](https://www.docker.com/get-started)
 
 Below instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
