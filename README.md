@@ -34,6 +34,7 @@ docker-compose up
 This will create container for django app and mysql db.
 
 ### Usage
+Swagger-ui: http://localhost:8090/swagger-ui
 
 Create User API
 ```
