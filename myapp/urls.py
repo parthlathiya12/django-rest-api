@@ -15,9 +15,13 @@ Including another URLconf
 """
 from . import views
 from django.urls import path
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
+schema_view = get_schema_view(openapi.Info(title="Django boilerplate API", default_version='v1'))
 
 urlpatterns = [
+    path(r'swagger-ui', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-ui'),
     path(r'', views.health_check),
     path(r'user', views.UserView.as_view(), name='user'),
     path(r'helloworld', views.hello_world, name='hello_world'),
