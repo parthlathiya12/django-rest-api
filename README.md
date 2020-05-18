@@ -1,7 +1,7 @@
 # Django Boilerplate
 
-This repo contains sample django application which has 2 APIs. one to create an user and another to get user.
-Foe easy setup, we hvae added docker setup also docke
+This repo contains sample Django application which has 2 APIs. one to create an user and another to get user.
+For easy setup, we have added docker-compose config.
 
 ## Getting Started
 
@@ -13,30 +13,36 @@ Below instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-Clone repo in local 
+Clone repo in local
 
 ```
 git clone https://github.com/roverer/django-boilerplate.git
 ```
 
-Build services using docker-compose. Go to project's root dir where docker-compose.yml located and run below cmd
+### Build and run
+
+Build services using docker-compose. Go to project's root dir where docker-compose.yml located and run below cmd.
+It will build all services mentioned in docker-compose file.
 
 ```
 docker-compose build
 ```
 
-Create and start containers.
+Now create container for Django app and mysql db.
 
 ```
 docker-compose up
 ```
 
-This will create container for django app and mysql db.
+
+Now you should have Django app and mysql db up & running...
 
 ### Usage
+
 Swagger-ui: http://localhost:8090/swagger-ui
 
 Create User API
+
 ```
 curl --location --request POST 'http://localhost:8090/user' --header 'Content-Type: application/json' --data-raw '{
     "email": "test@gmail.com",
@@ -44,7 +50,23 @@ curl --location --request POST 'http://localhost:8090/user' --header 'Content-Ty
     "last_name": "test_last_name"
 }'
 ```
+
 Get User API
+
 ```
-curl --location --request GET 'http://localhost:8090/user?email=test@gmail.com' --header 'Content-Type: application/json' 
+curl --location --request GET 'http://localhost:8090/user?email=test@gmail.com' --header 'Content-Type: application/json'
+```
+
+### Other useful commands
+
+Enter inside Django app container(In docker-compose file, we have defined it as `web`)
+
+```
+docker-compose exec web sh
+```
+
+Connect with mysql inside container from host(your machine). Enter `test_password` as password
+
+```
+mysql -P 3310 --protocol=tcp -u test_user -p
 ```
