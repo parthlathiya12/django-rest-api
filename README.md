@@ -1,4 +1,4 @@
-# Django Boilerplate
+# REST APIs in python using Django
 
 This repo contains sample Django application which has 2 APIs. one to create an user and another to get user.
 For easy setup, we have added docker-compose config.
@@ -16,7 +16,7 @@ Below instructions will get you a copy of the project up and running on your loc
 Clone repo in local
 
 ```
-git clone https://github.com/roverer/django-boilerplate.git
+git clone https://github.com/parthlathiya/django-rest-api.git
 ```
 
 ### Build and run
@@ -33,7 +33,6 @@ Now create container for Django app and mysql db.
 ```
 docker-compose up
 ```
-
 
 Now you should have Django app and mysql db up & running...
 
